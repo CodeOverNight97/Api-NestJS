@@ -5,7 +5,7 @@ export class AppService {
   getHello(): string {
     setInterval(async () => {
       await this.getData();
-    }, 1000);
+    }, 600000);
     return 'Hello anh anh 1412!';
   }
   async getData(): Promise<any> {
