@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
+  private isCalled = false;
   getHello(): string {
     setInterval(async () => {
       await this.getData();
@@ -12,6 +13,7 @@ export class AppService {
     const url = 'https://n8n-syag.onrender.com/';
   
     try {
+      this.isCalled = true;
       const response = await fetch(url);
   
       if (!response.ok) {
@@ -22,8 +24,12 @@ export class AppService {
       return ''; // Chỉ parse nếu là JSON
     } catch (error) {
       console.error(`Err ${new Date().toISOString()}`, error);
+      this.isCalled = false;
       return '';
     }
+  }
+  checkCalled(): boolean {
+    return this.isCalled;
   }
    
 }

@@ -10,6 +10,12 @@ export class AppController {
     return this.appService.getHello();
   }
 
+  
+  @Get('checkCalled')
+  Check(): boolean {
+    return this.appService.checkCalled();
+  }
+
   @Post('someString')
   sayAny(word: string): string {
     return word;
