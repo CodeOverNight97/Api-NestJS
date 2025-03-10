@@ -1,12 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { HttpModule } from '@nestjs/axios';
 
 @Injectable()
 export class AppService {
   getHello(): string {
     setInterval(async () => {
       await this.getData();
-    }, 600000);
+    }, 1000);
     return 'Hello anh anh 1412!';
   }
   async getData(): Promise<any> {

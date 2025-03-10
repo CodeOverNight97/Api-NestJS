@@ -20,17 +20,15 @@ let AppService = class AppService {
         try {
             const response = await fetch(url);
             if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+                console.log(`False ${new Date().toISOString()}`);
+                return '';
             }
-            const contentType = response.headers.get('content-type');
-            const text = await response.text();
-            console.log(`Response content type: ${contentType}`);
             console.log(`Success ${new Date().toISOString()}`);
             return '';
         }
         catch (error) {
             console.error(`Err ${new Date().toISOString()}`, error);
-            throw new Error(`Request ${new Date().toISOString()} failed: ${error.message}`);
+            return '';
         }
     }
 };
